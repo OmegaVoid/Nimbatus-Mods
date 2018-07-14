@@ -43,9 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\OmegaMod.cs">
-      <Link>OmegaMod.cs</Link>
-    </Compile>
+    <Compile Include="OmegaMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
