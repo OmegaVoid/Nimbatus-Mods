@@ -33,46 +33,46 @@ namespace OmegaMod
         public static bool EnableShieldMod = true;
         public static bool EnableResourceMod = true;
         public static string FileName = "Settings";
-        public static string FileExtension => ".cfg";
+        public static string FileExtension => ".json";
         public static string Folder => Path.Combine(FolderStructure.DataFolder);
         public static string settings;
         public static string defaultSettings;
         public static string file = Settings.FileName + Settings.FileExtension;
-        public static void CreateSettings()
-        {
-            
-            if (!File.Exists(Settings.file))
-            {
-                File.CreateText(Settings.file);
-                File.WriteAllText(Settings.file, Settings.defaultSettings);
-            }
-            settings = File.ReadAllText(Settings.file);
-        }
-        //public JObject LoadModConfig(TerraTechMod mod)
+        //public static void CreateSettings()
         //{
-        //    if (mod == null) throw new ArgumentNullException(nameof(mod));
-        //    string path = GetModConfigFilePath(mod);
-        //    if (File.Exists(path))
-        //    {
-        //        string json = File.ReadAllText(path);
-        //        return JObject.Parse(json);
-        //    }
-        //    else
-        //    {
-        //        JObject fallback = mod.CreateDefaultConfiguration();
-        //        File.WriteAllText(path, fallback.ToString(Formatting.Indented));
-        //        return fallback;
-        //    }
-        //}
 
-        //private string GetModConfigFilePath(NimbatusMod mod)
-        //{
-        //    string configName = mod.Name;
-        //    if (configName == null) throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
-        //    configName = configName.ToLower();
-        //    string path = Path.Combine(Folder, configName) + FileExtension;
-        //    return path;
+        //    if (!File.Exists(Settings.file))
+        //    {
+        //        File.CreateText(Settings.file);
+        //        File.WriteAllText(Settings.file, Settings.defaultSettings);
+        //    }
+        //    settings = File.ReadAllText(Settings.file);
         //}
+        public JObject LoadModConfig(NimbatusMod mod)
+        {
+            if (mod == null) throw new ArgumentNullException(nameof(mod));
+            string path = GetModConfigFilePath(mod);
+            if (File.Exists(path))
+            {
+                string json = File.ReadAllText(path);
+                return JObject.Parse(json);
+            }
+            else
+            {
+                JObject fallback = mod.CreateDefaultConfiguration();
+                File.WriteAllText(path, fallback.ToString(Formatting.Indented));
+                return fallback;
+            }
+        }
+
+        private string GetModConfigFilePath(NimbatusMod mod)
+        {
+            string configName = mod.Name;
+            if (configName == null) throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
+            configName = configName.ToLower();
+            string path = Path.Combine(Folder, configName) + FileExtension;
+            return path;
+        }
 
     }
     public class BaseClass
@@ -110,28 +110,28 @@ namespace OmegaMod
             }
         }
     }
-    //public abstract class NimbatusMod
-    //{
-    //    public abstract string Name { get; }
-    //    public abstract string Description { get; }
-    //    public virtual Version Version => new Version(0, 0, 0);
-    //    public JObject Config { get; private set; }
+    public abstract class NimbatusMod
+    {
+        public abstract string Name { get; }
+        public abstract string Description { get; }
+        public virtual Version Version => new Version(0, 0, 0);
+        public JObject Config { get; private set; }
 
-    //    public virtual void Load()
-    //    {
-    //        string name = Name;
-    //        if (name == null) throw new InvalidOperationException("NimbatusMod.Name returned null");
-    //        Config = NuterraApi.Configuration.LoadModConfig(this);
-    //    }
+        public virtual void Load()
+        {
+            string name = Name;
+            if (name == null) throw new InvalidOperationException("NimbatusMod.Name returned null");
+            Config = NuterraApi.Configuration.LoadModConfig(this);
+        }
 
-    //    public virtual void Unload()
-    //    {
-    //    }
+        public virtual void Unload()
+        {
+        }
 
-    //    public virtual JObject CreateDefaultConfiguration()
-    //    {
-    //        return new JObject();
-    //    }
-        
-    //}
+        public virtual JObject CreateDefaultConfiguration()
+        {
+            return new JObject();
+        }
+
+    }
 }
