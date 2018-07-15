@@ -6,10 +6,10 @@ using System.Text;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-namespace OmegaMod
+namespace OmegaMods
 {
 
-    public class OmegaMod
+    public class OmegaModLoader
     {
         public NimbatusMod[] modList;
         public string ModInfo;
@@ -36,7 +36,17 @@ namespace OmegaMod
         public static readonly string ModsFolder = Path.Combine(DataFolder, "Mods");
         public static readonly string ConfigFolder = Path.Combine(DataFolder, "Config");
     }
+    public class OmegaMod:NimbatusMod
+    {
+        public override string Name => "OmegaMod";
+        public override string Description => "Base Mod";
+        public override Version Version => new Version(0, 1, 0);
+        public override void Load(OmegaModLoader Mods)
+        {
+            base.Load(Mods);
+        }
 
+    }
 
     //public class Settings
     //{
@@ -137,13 +147,13 @@ namespace OmegaMod
     }
     public abstract class NimbatusMod
     {
-        private OmegaMod Modss;
+        private OmegaModLoader Modss;
         public abstract string Name { get; }
         public abstract string Description { get; }
         public virtual Version Version => new Version(0, 1, 1);
         public JObject Config { get; private set; }
 
-        public virtual void Load(OmegaMod Mods)
+        public virtual void Load(OmegaModLoader Mods)
         {
             Modss = Mods;
             string name = Name;
