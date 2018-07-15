@@ -15,7 +15,10 @@ namespace OmegaMod
         public string ModInfo;
         public void InitializeMod()
         {
-
+            for (int i = 0; i < modList.Length; i++)
+            {
+                modList[i].Load(this);
+            }
             ModInfo = "Modded\nLoaded Mods:\n" + modList.ToString();
             return;
         }
@@ -63,50 +66,70 @@ namespace OmegaMod
         {
             public static class Bettery
             {
-                public static void Strat()
+                public static void Start(ref Battery Bat)
                 {
-
+                    //do something
                 }
-                public static void Unpdate()
+                public static void Awake(ref Battery Bat)
                 {
-
+                    Bat.MaxEnergyAmount = 1E+19f;
+                    Bat.CurrentEnergyAmount = 1E+19f;
+                    Bat.RechargePerSecond = 1E+19f;
+                    //do something
+                }
+                public static void Update(ref Battery Bat)
+                {
+                    //do something
                 }
             }
-            public static class FuelTanc
+            public static class FeulTank
             {
-                public static void Strat()
+                public static void Start(ref FuelTank Fuel)
                 {
-
+                    //do something
                 }
-                public static void Unpdate()
+                public static void Awake(ref FuelTank Fuel)
                 {
+                    Fuel.CurrentFuelAmount = 1E+19f;
+                    Fuel.MaxFuelAmount = 1E+19f;
+                    Fuel.RechargePerSecond = 1E+19f;
+                    //do something
+                }
+                public static void Update(ref FuelTank Fuel)
+                {
+                    //do something
+                }
+            }
 
+            public static class ResuorceTank
+            {
+                public static void Start(ref ResourceTank Vsauce)
+                {
+                    //do something
+                }
+                public static void Awake(ref ResourceTank Vsauce)
+                {
+                    //do something
+                }
+                public static void Update(ref ResourceTank Vsauce)
+                {
+                    //do something
                 }
             }
 
             public static class EnergieShield
             {
-                public static void Strat()
+                public static void Start(ref EnergyShield Shield)
                 {
-
+                    Shield.SizePerSecond = 1f;
+                    //do something
                 }
-                public static void Unpdate()
+                public static void Update(ref EnergyShield Shield)
                 {
-
-                }
-            }
-
-            public static class Thurster
-            {
-                public static void Strat()
-                {
-
-                }
-                public static void Unpdate()
-                {
-
+                    //do something
                 }
             }
+
         }
     }
     public abstract class NimbatusMod
@@ -122,13 +145,13 @@ namespace OmegaMod
             Modss = Mods;
             string name = Name;
             if (name == null) throw new InvalidOperationException("NimbatusMod.Name returned null");
-            Mods.modList.Append(this);
+            
         }
         public override string ToString() => Name + Version.ToString();
 
         public virtual void Unload()
         {
-            Modss.modList.
+           
         }
 
         //public virtual JObject CreateDefaultConfiguration()
