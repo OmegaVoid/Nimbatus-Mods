@@ -1,4 +1,7 @@
 # Nimbatus-Mods
-Mods for Nimbatus - The Space Drone Constructor
-http://www.nimbatus.ch/
-http://strayfawnstudio.com/forum/
+Mods for the Nimbatus Alpha
+
+##Nimbatus - The Space Drone Constructor
+[Nimbatus Website](http://www.nimbatus.ch/)
+[Nimbatus Forum](http://strayfawnstudio.com/forum/)
+[Nimbatus on Steam](http://store.steampowered.com/app/383840/Nimbatus__The_Space_Drone_Constructor/)
