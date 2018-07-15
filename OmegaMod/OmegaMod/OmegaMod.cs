@@ -28,7 +28,7 @@ namespace OmegaMod
 
     public static class FolderStructure
     {
-        public static readonly string RootFolder = Path.Combine(UnityEngine.Application.dataPath, "..");
+        public static readonly string RootFolder = Path.Combine(Application.dataPath, "..");
         public static readonly string DataFolder = Path.Combine(RootFolder, "OmegaData");
         public static readonly string ModsFolder = Path.Combine(DataFolder, "Mods");
         public static readonly string ConfigFolder = Path.Combine(DataFolder, "Config");
@@ -66,36 +66,36 @@ namespace OmegaMod
         {
             public static class Bettery
             {
-                public static void Start(ref Battery Bat)
+                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
                 {
                     //do something
                 }
-                public static void Awake(ref Battery Bat)
+                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
                 {
                     Bat.MaxEnergyAmount = 1E+19f;
                     Bat.CurrentEnergyAmount = 1E+19f;
                     Bat.RechargePerSecond = 1E+19f;
                     //do something
                 }
-                public static void Update(ref Battery Bat)
+                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
                 {
                     //do something
                 }
             }
             public static class FeulTank
             {
-                public static void Start(ref FuelTank Fuel)
+                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     //do something
                 }
-                public static void Awake(ref FuelTank Fuel)
+                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     Fuel.CurrentFuelAmount = 1E+19f;
                     Fuel.MaxFuelAmount = 1E+19f;
                     Fuel.RechargePerSecond = 1E+19f;
                     //do something
                 }
-                public static void Update(ref FuelTank Fuel)
+                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     //do something
                 }
@@ -103,28 +103,28 @@ namespace OmegaMod
 
             public static class ResuorceTank
             {
-                public static void Start(ref ResourceTank Vsauce)
+                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
-                public static void Awake(ref ResourceTank Vsauce)
+                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
-                public static void Update(ref ResourceTank Vsauce)
+                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
             }
-
+            
             public static class EnergieShield
             {
-                public static void Start(ref EnergyShield Shield)
+                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Shields.EnergyShield Shield)
                 {
                     Shield.SizePerSecond = 1f;
                     //do something
                 }
-                public static void Update(ref EnergyShield Shield)
+                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Shields.EnergyShield Shield)
                 {
                     //do something
                 }
