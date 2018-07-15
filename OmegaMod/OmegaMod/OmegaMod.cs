@@ -13,14 +13,17 @@ namespace OmegaMod
     {
         public NimbatusMod[] modList;
         public string ModInfo;
+        public string modInfo;
+        string modInfo2;
         public void InitializeMod()
         {
             for (int i = 0; i < modList.Length; i++)
             {
+                modInfo2 = modInfo;
                 modList[i].Load(this);
+                modInfo = modInfo2 + modList[i].ToString() + "\n";
             }
-            ModInfo = "Modded\nLoaded Mods:\n" + modList.ToString();
-            return;
+            ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
         }
 
     }
