@@ -11,19 +11,24 @@ namespace OmegaMods
 
     public class OmegaModLoader
     {
+        OmegaMod OmegaMood = new OmegaMod();
         public NimbatusMod[] modList;
         public string ModInfo;
         public string modInfo;
         string modInfo2;
+        
         public void InitializeMod()
         {
-            for (int i = 0; i < modList.Length; i++)
-            {
-                modInfo2 = modInfo;
-                modList[i].Load(this);
-                modInfo = modInfo2 + modList[i].ToString() + "\n";
-            }
-            ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
+            //modList[0] = OmegaMood;
+            //for (int i = 0; i < modList.Length; i++)
+            //{
+            //    modInfo2 = modInfo;
+            //    modList[i].Load(this);
+            //    modInfo = modInfo2 + modList[i].ToString() + "\n";
+            //}
+            //ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
+            OmegaMood.Load(this);
+            ModInfo = "Modded\nLoaded Mods:\n" + OmegaMood.ToString();
         }
 
     }
@@ -160,7 +165,7 @@ namespace OmegaMods
             if (name == null) throw new InvalidOperationException("NimbatusMod.Name returned null");
             
         }
-        public override string ToString() => Name + Version.ToString();
+        public override string ToString() => Name + " " + Version.ToString();
 
         public virtual void Unload()
         {
