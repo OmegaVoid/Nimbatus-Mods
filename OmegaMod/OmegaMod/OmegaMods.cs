@@ -16,19 +16,22 @@ namespace OmegaMods
         public string ModInfo;
         public string modInfo;
         string modInfo2;
-        
-        public void InitializeMod()
+        public void Startup()
         {
-            //modList[0] = OmegaMood;
-            //for (int i = 0; i < modList.Length; i++)
-            //{
-            //    modInfo2 = modInfo;
-            //    modList[i].Load(this);
-            //    modInfo = modInfo2 + modList[i].ToString() + "\n";
-            //}
-            //ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
-            OmegaMood.Load(this);
-            ModInfo = "Modded\nLoaded Mods:\n" + OmegaMood.ToString();
+            InitializeMod(OmegaMood);
+        }
+
+        public void InitializeMod(params NimbatusMod[] Modds)
+        {
+            modList = Modds;
+            for (int i = 0; i < modList.Length; i++)
+            {
+                modInfo2 = modInfo;
+                modList[0].Load(this);
+                modInfo = modInfo2 + modList[0].ToString() + "\n";
+            }
+           // OmegaMood.Load(this);
+            ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
         }
 
     }
