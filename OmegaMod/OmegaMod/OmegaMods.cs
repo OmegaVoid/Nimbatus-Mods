@@ -48,14 +48,24 @@ namespace OmegaMods
     {
         public override string Name => "OmegaMod";
         public override string Description => "Base Mod";
-        public override Version Version => new Version(0, 1, 0);
+        public override Version Version => new Version(0, 1, 0, 10);
         public override void Load(OmegaModLoader Mods)
         {
             base.Load(Mods);
         }
 
     }
+    public class FourLogic:NimbatusMod
+    {
+        public override string Name => "FourLogic";
+        public override string Description => "Logic Gates With Up to 4 Input";
+        public override Version Version => new Version(0, 0, 0, 0);
+        public override void Load(OmegaModLoader Mods)
+        {
+            base.Load(Mods);
+        }
 
+    }
     //public class Settings
     //{
     //    public static bool EnableEnergyCheat = true;
@@ -78,7 +88,7 @@ namespace OmegaMods
     //    //    }
     //    //    settings = File.ReadAllText(Settings.file);
     //    //}
-        
+
 
     //}
     public static class Hooks
