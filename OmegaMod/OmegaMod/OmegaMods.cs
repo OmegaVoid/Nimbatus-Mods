@@ -151,7 +151,7 @@ namespace OmegaMods
         public abstract string Name { get; }
         public abstract string Description { get; }
         public virtual Version Version => new Version(0, 1, 1);
-        public JObject Config { get; private set; }
+        //public JObject Config { get; private set; }
 
         public virtual void Load(OmegaModLoader Mods)
         {
