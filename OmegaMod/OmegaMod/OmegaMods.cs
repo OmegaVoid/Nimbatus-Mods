@@ -11,6 +11,7 @@ namespace OmegaMods
 
     public class OmegaModLoader
     {
+        FourLogic ForLogic = new FourLogic();
         OmegaMod OmegaMood = new OmegaMod();
         public NimbatusMod[] modList;
         public string ModInfo;
@@ -18,7 +19,7 @@ namespace OmegaMods
         string modInfo2;
         public void Startup()
         {
-            InitializeMod(OmegaMood);
+            InitializeMod(OmegaMood,ForLogic);
         }
 
         public void InitializeMod(params NimbatusMod[] Modds)
@@ -27,10 +28,10 @@ namespace OmegaMods
             for (int i = 0; i < modList.Length; i++)
             {
                 modInfo2 = modInfo;
-                modList[0].Load(this);
-                modInfo = modInfo2 + modList[0].ToString() + "\n";
+                modList[i].Load(this);
+                modInfo = modInfo2 + modList[i].ToString() + "\n";
             }
-           // OmegaMood.Load(this);
+            // OmegaMood.Load(this);
             ModInfo = "Modded\nLoaded Mods:\n" + modInfo;
         }
 
