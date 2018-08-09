@@ -9,3 +9,9 @@ Mods for the Nimbatus Alpha
 [Nimbatus on Steam](http://store.steampowered.com/app/383840/Nimbatus__The_Space_Drone_Constructor/)
 
 [Nimbatus Discord](https://discordapp.com/invite/rdEjXYj)
+
+## Feature List
+Infinite Energy
+Infinite Fuel
+Growable Shields
+4 Input Logic
