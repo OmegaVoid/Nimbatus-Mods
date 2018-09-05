@@ -151,12 +151,12 @@ namespace OmegaMods
             
             public static class EnergieShield
             {
-                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Shields.EnergyShield Shield)
+                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
                 {
                     Shield.SizePerSecond = 1f;
                     //do something
                 }
-                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Shields.EnergyShield Shield)
+                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
                 {
                     //do something
                 }
@@ -182,7 +182,7 @@ namespace OmegaMods
         public override string ToString() => Name + " " + Version.ToString();
 
         public virtual void Unload()
-        {
+        { 
            
         }
 
