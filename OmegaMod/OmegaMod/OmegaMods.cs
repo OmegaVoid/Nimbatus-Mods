@@ -6,6 +6,10 @@ using System.Text;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Mono.Cecil;
+using dnlib.DotNet;
+using dnlib.DotNet.Emit;
+using OmegaMods;
 namespace OmegaMods
 {
 
@@ -37,7 +41,6 @@ namespace OmegaMods
 
     }
     
-
     public static class FolderStructure
     {
         public static readonly string RootFolder = Path.Combine(Application.dataPath, "..");
@@ -60,7 +63,7 @@ namespace OmegaMods
     {
         public override string Name => "FourLogic";
         public override string Description => "Logic Gates With Up to 4 Input";
-        public override Version Version => new Version(0, 0, 0, 0);
+        public override Version Version => new Version(-1, -1, -1, -1);
         public override void Load(OmegaModLoader Mods)
         {
             base.Load(Mods);
@@ -98,36 +101,36 @@ namespace OmegaMods
         {
             public static class Bettery
             {
-                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
+                internal static void Starting(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat, float MaxEnergyAmount, float CurrentEnergyAmount, float RechargePerSecond)
                 {
                     //do something
                 }
-                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
+                internal static void Awaken(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat, float MaxEnergyAmount, float CurrentEnergyAmount, float RechargePerSecond)
                 {
                     Bat.MaxEnergyAmount = 1E+19f;
                     Bat.CurrentEnergyAmount = 1E+19f;
                     Bat.RechargePerSecond = 1E+19f;
                     //do something
                 }
-                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat)
+                internal static void Updateing(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Batteries.Battery Bat, float MaxEnergyAmount, float CurrentEnergyAmount, float RechargePerSecond)
                 {
                     //do something
                 }
             }
             public static class FeulTank
             {
-                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
+                public static void Starting(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     //do something
                 }
-                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
+                public static void Awaken(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     Fuel.CurrentFuelAmount = 1E+19f;
                     Fuel.MaxFuelAmount = 1E+19f;
                     Fuel.RechargePerSecond = 1E+19f;
                     //do something
                 }
-                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
+                public static void Updateing(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks.FuelTank Fuel)
                 {
                     //do something
                 }
@@ -135,15 +138,15 @@ namespace OmegaMods
 
             public static class ResuorceTank
             {
-                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
+                public static void Starting(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
-                public static void Awake(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
+                public static void Awaken(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
-                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
+                public static void Updateing(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DronePartResources.ResourceTank Vsauce)
                 {
                     //do something
                 }
@@ -151,12 +154,12 @@ namespace OmegaMods
             
             public static class EnergieShield
             {
-                public static void Start(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
+                public static void Starting(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
                 {
                     Shield.SizePerSecond = 1f;
                     //do something
                 }
-                public static void Update(ref Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
+                public static void Updateing(Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield Shield)
                 {
                     //do something
                 }
