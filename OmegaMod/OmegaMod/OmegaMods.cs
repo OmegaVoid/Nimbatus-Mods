@@ -9,7 +9,6 @@ using Newtonsoft.Json.Linq;
 using Mono.Cecil;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using OmegaMods;
 namespace OmegaMods
 {
 
