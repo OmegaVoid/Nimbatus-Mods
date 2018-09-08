@@ -15,7 +15,7 @@ namespace OmegaMods
 
     public class OmegaModLoader
     {
-        FourLogic ForLogic = new FourLogic();
+        //FourLogic ForLogic = new FourLogic();
         OmegaMod OmegaMood = new OmegaMod();
         public NimbatusMod[] modList;
         public string ModInfo;
@@ -23,7 +23,7 @@ namespace OmegaMods
         string modInfo2;
         public void Startup()
         {
-            InitializeMod(OmegaMood,ForLogic);
+            InitializeMod(OmegaMood);
         }
 
         public void InitializeMod(params NimbatusMod[] Modds)
@@ -52,24 +52,24 @@ namespace OmegaMods
     {
         public override string Name => "OmegaMod";
         public override string Description => "Base Mod";
-        public override Version Version => new Version(0, 1, 0, 10);
+        public override Version Version => new Version(0, 1, 8, 3);
         public override void Load(OmegaModLoader Mods)
         {
             base.Load(Mods);
         }
 
     }
-    public class FourLogic:NimbatusMod
-    {
-        public override string Name => "FourLogic";
-        public override string Description => "Logic Gates With Up to 4 Input";
-        public override Version Version => new Version(-1, -1, -1, -1);
-        public override void Load(OmegaModLoader Mods)
-        {
-            base.Load(Mods);
-        }
+    //public class FourLogic:NimbatusMod
+    //{
+    //    public override string Name => "FourLogic";
+    //    public override string Description => "Logic Gates With Up to 4 Input";
+    //    public override Version Version => new Version(-1, -1, -1, -1);
+    //    public override void Load(OmegaModLoader Mods)
+    //    {
+    //        base.Load(Mods);
+    //    }
 
-    }
+    //}
     //public class Settings
     //{
     //    public static bool EnableEnergyCheat = true;
