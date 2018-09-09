@@ -13,6 +13,9 @@ Add Suggestions in Issues
 
 ## Feature List
 Infinite Energy
+
 Infinite Fuel
+
 Growable Shields
-4 Input Logic
+
+*4 Input Logic
