@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OmegaMod")]
-[assembly: AssemblyDescription("Nimbatus Modloader")]
+[assembly: AssemblyTitle("ExampleMod")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Omega")]
-[assembly: AssemblyProduct("OmegaMod")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ExampleMod")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("Omega")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("89d645ec-f2c5-412d-a10f-de5e967501eb")]
+[assembly: Guid("7bcec5e7-a51d-458f-a9f3-7571e9737664")]
 
 // Version information for an assembly consists of the following four values:
 //
