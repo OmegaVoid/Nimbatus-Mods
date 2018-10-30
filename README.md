@@ -1,6 +1,7 @@
 # Nimbatus Mods
 Mods for the Nimbatus Alpha
 
+Add Suggestions in Issues
 ## Nimbatus - The Space Drone Constructor
 [Nimbatus Website](http://www.nimbatus.ch/)
 
@@ -12,6 +13,9 @@ Mods for the Nimbatus Alpha
 
 ## Feature List
 Infinite Energy
+
 Infinite Fuel
+
 Growable Shields
-4 Input Logic
+
+*4 Input Logic*
