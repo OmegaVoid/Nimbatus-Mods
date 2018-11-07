@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OmegaMods;
+using API;
 // this is an Example Mod, use this to learn how to make a mod or as a template for your mod
 namespace ExampleMod
 {
