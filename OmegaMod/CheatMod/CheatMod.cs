@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,35 +10,25 @@ using Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.FuelTanks;
 using MonoMod.ModInterop;
 
 using API;
+using Partiality.Modloader;
+using UnityEngine;
 
 
 namespace CheatMod
 {
 
-    public class CheatMod : NimbatusMod
+    public class CheatMod : PartialityMod
     {
-        public override string Name => "CheatMod";
 
-        public override string Description => "Cheat Mod";
-
-        public override string Author => "OmegaRogue";
-        public override void Load(OmegaModLoader Mods)
+        public override void Init()
         {
-            base.Load(Mods);
+        base.Init();
+        ModID = "CheatMod";
+        author = "OmegaRogue";
+        Version = new Version(1, 0, 0, 0).ToString();
+        
         }
 
-        //public override void Init()
-        //{
-        //    base.Init();
-        //    ModID = "CheatMod";
-        //    author = "OmegaRogue";
-        //    Version = new Version(1, 0, 0, 0).ToString();
-
-        //}
-        public override void OnLoad()
-        {
-            base.OnLoad();
-        }
         public override void OnEnable()
         {
             base.OnEnable();

@@ -51,6 +51,9 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\MonoMod.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OmegaMod">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Mods\OmegaMod.dll</HintPath>
       <Private>False</Private>

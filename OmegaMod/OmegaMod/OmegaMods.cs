@@ -16,6 +16,8 @@ using Assets.Nimbatus.GUI.Common.Scripts;
 using Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.Thruster;
 using Partiality.Modloader;
 using API;
+using MonoMod.Utils;
+
 
 #pragma warning disable CS0626
 namespace OmegaMods
@@ -24,31 +26,30 @@ namespace OmegaMods
     
 
 
-    public class OmegaMod : NimbatusMod
+    public class OmegaMod : PartialityMod
     {
-        public override string Name => "OmegaMod";
-        public override string Description => "Base Mod";
-        public override Version modVersion => new Version(0, 2, 0, 0);
-        public override string Author => "OmegaRogue";
-
-
         public override void Init()
         {
-            base.Init();
-
+        base.Init();
+        ModID = "OmegaMod";
+        author = "OmegaRogue";
+        Version = new Version(1, 0, 0, 0).ToString();
         }
+
         public override void OnLoad()
         {
             base.OnLoad();
         }
-        public override void OnDisable()
-        {
-            base.OnDisable();
-        }
         public override void OnEnable()
         {
             base.OnEnable();
+            // += your hooks
 
+        }
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            // -= your hooks (a future Partiality update will do this automatically)
         }
 
        
@@ -111,6 +112,7 @@ namespace OmegaMods
         {
             this.SizePerSecond = 1f;
             orig_Start();
+            AddKeyBindings(); 
 
         }
         public override List<KeyBinding> GetKeyBindings()
