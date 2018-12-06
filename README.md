@@ -1,6 +1,10 @@
 # Nimbatus Mods
 Mods for the Nimbatus Alpha
 
+## Getting Started
+
+Visit the [Wiki](https://github.com/OmegaRogue/Nimbatus-Mods/wiki) for guides on how to install this
+
 Add Suggestions in Issues
 ## Nimbatus - The Space Drone Constructor
 [Nimbatus Website](http://www.nimbatus.ch/)
