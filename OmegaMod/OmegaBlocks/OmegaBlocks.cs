@@ -10,24 +10,32 @@ using Partiality.Modloader;
 namespace OmegaBlocks
 {
     [MonoModPatch("global::OmegaBlocks.OmegaBlocks")]
-    public class OmegaBlocks : NimbatusMod
+    public class OmegaBlocks : PartialityMod
     {
-        public override string Name => "OmegaBlocks";
+        public override void Init()
+        {
+            base.Init();
+            ModID = "OmegaBlocks";
+            author = "OmegaRogue";
+            Version = new Version(0, 0, 0, 0).ToString();
+        }
 
-        public override string Description => "";
-
-        public override string Author => "OmegaRogue";
-
-        public override Version modVersion => new Version(0, 1, 0, 0);
-
+        public override void OnLoad()
+        {
+            base.OnLoad();
+        }
         public override void OnEnable()
         {
+            base.OnEnable();
+            // += your hooks
 
         }
         public override void OnDisable()
         {
-            
+            base.OnDisable();
+            // -= your hooks (a future Partiality update will do this automatically)
         }
+
         
     }
 }
