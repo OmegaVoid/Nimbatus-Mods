@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using API;
 using Partiality.Modloader;
+
 // this is an Example Mod, use this to learn how to make a mod or as a template for your mod
 namespace ExampleMod
 {

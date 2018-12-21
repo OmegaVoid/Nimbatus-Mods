@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Nimbatus.GUI.MainMenu.Scripts;
 using Assets.Nimbatus.Scripts.Persistence;
 using Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts;
 using Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.SensorParts;
 using MonoMod;
-using MonoMod.ModInterop;
-using OmegaMods;
-using On.Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts;
+using Newtonsoft.Json.Linq;
 using Partiality.Modloader;
 using UnityEngine;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using NGenerics.Extensions;
-using Partiality;
 
 #pragma warning disable CS0626
 namespace API
@@ -48,56 +39,54 @@ namespace API
     //}
     public class ModAPI : PartialityMod
     {
-       public override void Init()
-       {
-           base.Init();
+        public override void Init()
+        {
+            base.Init();
             ModID = "API";
             author = "OmegaRogue";
             Version = new Version(1, 0, 0, 0).ToString();
-           loadPriority = 0;
-       }
-
+            loadPriority = 0;
+        }
     }
+
     [MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.BindableDronePart")]
-    abstract class patch_BindableDronePart : BindableDronePart
+    internal abstract class patch_BindableDronePart : BindableDronePart
     {
-        [MonoMod.MonoModIgnore]
-        internal List<KeyBinding> KeyBindings;
+        [MonoModIgnore] internal List<KeyBinding> KeyBindings;
+
         public virtual void AddKeyBindings(params KeyBinding[] keys)
         {
-            this.KeyBindings.AddRange(keys);
-        }
-        public virtual void RemoveKeyBindings(params KeyBinding[] keys)
-        {
-            foreach (KeyBinding key in keys)
-            {
-                this.KeyBindings.Remove(key);
-            }
-        }
-    }
-    [MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.SensorParts.SensorPart")]
-    abstract class patch_SensorPart : SensorPart
-    {
-        [MonoMod.MonoModIgnore]
-        internal List<KeyBinding> EventBindings;
-        public virtual void AddEventBindings(params KeyBinding[] keys)
-        {
-            this.EventBindings.AddRange(keys);
-        }
-        public virtual void RemoveEventBindings(params KeyBinding[] keys)
-        {
-            foreach (KeyBinding key in keys)
-            {
-                this.EventBindings.Remove(key);
-            }
+            KeyBindings.AddRange(keys);
         }
 
+        public virtual void RemoveKeyBindings(params KeyBinding[] keys)
+        {
+            foreach (var key in keys) KeyBindings.Remove(key);
+        }
     }
+
+    [MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.SensorParts.SensorPart")]
+    internal abstract class patch_SensorPart : SensorPart
+    {
+        [MonoModIgnore] internal List<KeyBinding> EventBindings;
+
+        public virtual void AddEventBindings(params KeyBinding[] keys)
+        {
+            EventBindings.AddRange(keys);
+        }
+
+        public virtual void RemoveEventBindings(params KeyBinding[] keys)
+        {
+            foreach (var key in keys) EventBindings.Remove(key);
+        }
+    }
+
     public class LoadFromFile : MonoBehaviour
     {
         public void Start()
         {
-            var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "myassetBundle"));
+            var myLoadedAssetBundle =
+                AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "myassetBundle"));
             if (myLoadedAssetBundle == null)
             {
                 Debug.Log("Failed to load AssetBundle!");
@@ -109,44 +98,43 @@ namespace API
 
             myLoadedAssetBundle.Unload(false);
         }
-        
     }
 
     public class ConfigManager
     {
-        private string _folder;
-        public string Folder => Path.Combine(FolderStructure.ConfigFolder, _folder);
-        public string FileExtension => ".json";
+        private readonly string _folder;
 
         public ConfigManager(string folder)
         {
             _folder = folder;
         }
 
+        public string Folder => Path.Combine(FolderStructure.ConfigFolder, _folder);
+        public string FileExtension => ".json";
+
         public JObject LoadModConfig(PartialityMod mod)
         {
-            if(mod == null) throw new ArgumentNullException(nameof(mod));
-            string path = GetModConfigFilePath(mod);
-            string json = File.ReadAllText(path);
+            if (mod == null) throw new ArgumentNullException(nameof(mod));
+            var path = GetModConfigFilePath(mod);
+            var json = File.ReadAllText(path);
             return JObject.Parse(json);
-            
         }
 
         private string GetModConfigFilePath(PartialityMod mod)
         {
-            string configName = mod.ModID;
-            if(configName == null) throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
+            var configName = mod.ModID;
+            if (configName == null) throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
             configName = configName.ToLower();
-            string path = Path.Combine(Folder, configName) + FileExtension;
+            var path = Path.Combine(Folder, configName) + FileExtension;
             return path;
         }
-
     }
+
     public static class AssetBundleImport
     {
         public static readonly string AssetFilename = "mod-nimbatus";
-        
     }
+
     public static class FolderStructure
     {
         public static readonly string RootFolder = Application.dataPath;
@@ -190,23 +178,26 @@ namespace API
 
     //}
     [MonoModPatch("global::Assets.Nimbatus.GUI.MainMenu.Scripts.ShowVersionNumber")]
-    class patch_ShowVersionNumber : ShowVersionNumber
+    internal class patch_ShowVersionNumber : ShowVersionNumber
     {
-
         public int labelSizeAdd;
-       // public OmegaModLoader Mod;
+
+        // public OmegaModLoader Mod;
         public extern void orig_Update();
+
         public void Update()
         {
-            this.labelSizeAdd = 0;
-            this.Label.SetDimensions(this.Label.width + this.labelSizeAdd, this.Label.height + this.labelSizeAdd);
-            this.Label.text = "Version " + SaveGameManager.CurrentGameVersion + " Closed Alpha " + "Modded using OmegaMod";//+ this.Mod.ModInfo;
+            labelSizeAdd = 0;
+            Label.SetDimensions(Label.width + labelSizeAdd, Label.height + labelSizeAdd);
+            Label.text = "Version " + SaveGameManager.CurrentGameVersion + " Closed Alpha " +
+                         "Modded using OmegaMod"; //+ this.Mod.ModInfo;
         }
+
         public void Start()
         {
             //this.Mod = new OmegaModLoader();
             Debug.Log("Running OmegaMod");
-           // this.Mod.Startup();
+            // this.Mod.Startup();
         }
     }
 }
