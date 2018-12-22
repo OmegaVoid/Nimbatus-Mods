@@ -33,12 +33,15 @@
 	<ItemGroup>
 		<Reference Include="AmplifyColor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\AmplifyColor.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="Partiality, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Partiality.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="HOOKS-Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\HOOKS-Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 
 		<Reference Include="System"/>

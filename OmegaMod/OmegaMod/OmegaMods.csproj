@@ -35,9 +35,11 @@
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="HOOKS-Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\HOOKS-Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
 			<HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.dll</HintPath>
@@ -57,22 +59,23 @@
 		</Reference>
 		<Reference Include="MonoMod, Version=18.11.7.4, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\MonoMod.exe</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="MonoMod.BaseLoader, Version=18.11.7.4, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\MonoMod.BaseLoader.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="MonoMod.RuntimeDetour, Version=18.11.7.4, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\MonoMod.RuntimeDetour.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="MonoMod.Utils, Version=18.11.7.4, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\MonoMod.Utils.dll</HintPath>
-		</Reference>
-		<Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-			<HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-			<Private>True</Private>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="Partiality, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Partiality.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="PresentationCore"/>
 		<Reference Include="PresentationFramework"/>
@@ -89,9 +92,11 @@
 		<Reference Include="System.Xml"/>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\UnityEngine.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="WindowsBase"/>
 	</ItemGroup>
