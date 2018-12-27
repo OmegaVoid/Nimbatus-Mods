@@ -191,6 +191,7 @@ namespace API
 			Label.SetDimensions(Label.width + labelSizeAdd, Label.height + labelSizeAdd);
 			Label.text = "Version " + SaveGameManager.CurrentGameVersion + " Closed Alpha " +
 			             "Modded using OmegaMod"; //+ this.Mod.ModInfo;
+			
 		}
 
 		public void Start()
@@ -199,6 +200,7 @@ namespace API
 			//this.Mod = new OmegaModLoader();
 			Debug.Log("Running OmegaMod");
 			// this.Mod.Startup();
+			Label.gameObject.AddComponent<ModConfigurator>();
 		}
 	}
 }
