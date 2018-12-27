@@ -69,6 +69,9 @@
 		<Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
 		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+		</Reference>
 		<Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
 			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\Nimbatus_Data\Managed\UnityEngine.UI.dll</HintPath>
 		</Reference>
