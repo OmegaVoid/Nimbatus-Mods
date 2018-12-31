@@ -50,9 +50,9 @@ namespace API
 	}
 
 	[MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.BindableDronePart")]
-	internal abstract class patch_BindableDronePart : BindableDronePart
+	public abstract class patch_BindableDronePart : BindableDronePart
 	{
-		[MonoModIgnore] internal List<KeyBinding> KeyBindings;
+		[MonoModIgnore] public List<KeyBinding> KeyBindings;
 
 		public virtual void AddKeyBindings(params KeyBinding[] keys)
 		{
@@ -69,9 +69,9 @@ namespace API
 	}
 
 	[MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.SensorParts.SensorPart")]
-	internal abstract class patch_SensorPart : SensorPart
+	public abstract class patch_SensorPart : SensorPart
 	{
-		[MonoModIgnore] internal List<KeyBinding> EventBindings;
+		[MonoModIgnore] public List<KeyBinding> EventBindings;
 
 		public virtual void AddEventBindings(params KeyBinding[] keys)
 		{

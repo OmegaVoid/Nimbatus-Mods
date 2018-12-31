@@ -92,7 +92,7 @@ namespace OmegaMods
 	#region Hookers
 
 	[MonoModPatch("global::Assets.Nimbatus.")]
-	internal class patch_EnergyShield : Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield
+	public class patch_EnergyShield : Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield
 	{
 		public KeyBinding _activateShield;
 
