@@ -92,8 +92,7 @@ namespace OmegaMods
 	#region Hookers
 
 	[MonoModPatch("global::Assets.Nimbatus.")]
-	internal class
-		patch_EnergyShield : Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield
+	internal class patch_EnergyShield : Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.DefensiveParts.EnergyShield
 	{
 		public KeyBinding _activateShield;
 
@@ -145,11 +144,17 @@ namespace OmegaMods
 
 		public override void Update()
 		{
-			if (_increaseSize.IsPressed(KeyEventHub)) ShieldSize += SizePerSecond;
+			if (_increaseSize.IsPressed(KeyEventHub))
+            {
+                ShieldSize += SizePerSecond;
+            }
 
-			if (_decreaseSize.IsPressed(KeyEventHub)) ShieldSize -= SizePerSecond;
+            if (_decreaseSize.IsPressed(KeyEventHub))
+            {
+                ShieldSize -= SizePerSecond;
+            }
 
-			orig_Update();
+            orig_Update();
 		}
 	}
 
@@ -166,12 +171,15 @@ namespace OmegaMods
 			_giveThrust = new KeyBinding("Activate", KeyCode.W);
 			_reverseThrust = new KeyBinding("Reverse", KeyCode.None);
 			if (ChargeUp)
-				return new List<KeyBinding>
+            {
+                return new List<KeyBinding>
 				{
 					_giveThrust,
 					_reverseThrust
 				};
-			return new List<KeyBinding>
+            }
+
+            return new List<KeyBinding>
 			{
 				_giveThrust
 			};
@@ -184,10 +192,14 @@ namespace OmegaMods
 			if (ChargeUp)
 			{
 				if (_reverseThrust.IsPressed(KeyEventHub))
-					Force = -100f;
-				else
-					Force = 100f;
-			}
+                {
+                    Force = -100f;
+                }
+                else
+                {
+                    Force = 100f;
+                }
+            }
 
 			orig_FixedUpdate();
 		}

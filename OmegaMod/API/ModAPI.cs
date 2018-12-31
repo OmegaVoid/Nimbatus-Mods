@@ -61,8 +61,11 @@ namespace API
 
 		public virtual void RemoveKeyBindings(params KeyBinding[] keys)
 		{
-			foreach (var key in keys) KeyBindings.Remove(key);
-		}
+			foreach (var key in keys)
+            {
+                KeyBindings.Remove(key);
+            }
+        }
 	}
 
 	[MonoModPatch("global::Assets.Nimbatus.Scripts.WorldObjects.Items.DroneParts.SensorParts.SensorPart")]
@@ -77,8 +80,11 @@ namespace API
 
 		public virtual void RemoveEventBindings(params KeyBinding[] keys)
 		{
-			foreach (var key in keys) EventBindings.Remove(key);
-		}
+			foreach (var key in keys)
+            {
+                EventBindings.Remove(key);
+            }
+        }
 	}
 
 	public class LoadFromFile : MonoBehaviour
@@ -114,8 +120,12 @@ namespace API
 
 		public JObject LoadModConfig(PartialityMod mod)
 		{
-			if (mod == null) throw new ArgumentNullException(nameof(mod));
-			var path = GetModConfigFilePath(mod);
+			if (mod == null)
+            {
+                throw new ArgumentNullException(nameof(mod));
+            }
+
+            var path = GetModConfigFilePath(mod);
 			var json = File.ReadAllText(path);
 			return JObject.Parse(json);
 		}
@@ -123,8 +133,12 @@ namespace API
 		private string GetModConfigFilePath(PartialityMod mod)
 		{
 			var configName = mod.ModID;
-			if (configName == null) throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
-			configName = configName.ToLower();
+			if (configName == null)
+            {
+                throw new ArgumentException("NimbatusMod.Name is null", nameof(mod));
+            }
+
+            configName = configName.ToLower();
 			var path = Path.Combine(Folder, configName) + FileExtension;
 			return path;
 		}
@@ -185,7 +199,7 @@ namespace API
 		// public OmegaModLoader Mod;
 		public extern void orig_Update();
 
-		public void Update()
+		public new void Update()
 		{
 			labelSizeAdd = 0;
 			Label.SetDimensions(Label.width + labelSizeAdd, Label.height + labelSizeAdd);

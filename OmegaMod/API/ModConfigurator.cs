@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace API
 {
@@ -15,7 +16,10 @@ namespace API
 			}
 
 			// Make the second button.
-			if (GUI.Button(new Rect(20, 70, 80, 20), "Level 2")) Application.LoadLevel(2);
-		}
+			if (GUI.Button(new Rect(20, 70, 80, 20), "Level 2"))
+            {
+                SceneManager.LoadScene(2);
+            }
+        }
 	}
 }
