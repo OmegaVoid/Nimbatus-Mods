@@ -76,24 +76,18 @@
       <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MonoMod">
-      <HintPath>..\libs\MonoMod.dll</HintPath>
+    <Reference Include="MonoMod, Version=18.12.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.18.12.9.1\lib\net35\MonoMod.exe</HintPath>
     </Reference>
-    <Reference Include="MonoMod.RuntimeDetour">
-      <HintPath>..\libs\MonoMod.RuntimeDetour.dll</HintPath>
+    <Reference Include="MonoMod.RuntimeDetour, Version=18.12.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.RuntimeDetour.18.12.9.1\lib\net35\MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod.Utils">
-      <HintPath>..\libs\MonoMod.Utils.dll</HintPath>
+    <Reference Include="MonoMod.Utils, Version=18.12.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.Utils.18.12.9.1\lib\net35\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
     <Reference Include="Partiality">
-      <HintPath>..\libs\Partiality.dll</HintPath>
-    </Reference>
-    <Reference Include="PartialityLauncher">
-      <HintPath>..\libs\PartialityLauncher.dll</HintPath>
-    </Reference>
-    <Reference Include="PartialityPatch">
-      <HintPath>..\libs\PartialityPatch.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Nimbatus\Windows64\ModDependencies\Partiality.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
