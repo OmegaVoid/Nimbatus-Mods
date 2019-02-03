@@ -24,6 +24,13 @@ Growable Shields
 
 *4 Input Logic*
 
+## Notes for Modding
+we use Tab indents
+
+4 Spaces are ok but shoudl rather be converted to Tabs
+
+2 Spaces are banned
+
 ## License
 Nimbatus-Mods is under GNU GPL v3.0 license
 
