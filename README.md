@@ -23,3 +23,8 @@ Infinite Fuel
 Growable Shields
 
 *4 Input Logic*
+
+## License
+Nimbatus-Mods is under GNU GPL v3.0 license
+
+![Copyleft](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Copyleft.svg/2000px-Copyleft.svg.png)
